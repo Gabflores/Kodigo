@@ -73,11 +73,17 @@ public class Empleado extends Usuario{
             System.out.println(id);
             entrada.nextLine();
 
-            //VALIDACION DE PARAMETRO NOMBRE
-            System.out.println("Nombre del empleado");
-            nombre = entrada.nextLine();
-            System.out.println("Apellido del empleado");
-            apellido = entrada.nextLine();
+            do{//VALIDACION DE PARAMETRO NOMBRE
+                System.out.println("Nombre del empleado");
+                nombre = entrada.nextLine();
+            }while(!(nombre.matches("^([a-z]+[ ]?){1,2}$")));
+
+
+            do {//VALIDACION DE PARAMETRO APELLIDO
+                System.out.println("Apellido del empleado");
+                apellido = entrada.nextLine();
+            }while(!(apellido.matches("^([a-z]+[ ]?){1,2}$")));
+
 
             do {//VALIDACION DE PARAMETRO SEXO
                 System.out.println("Ingresar sexo del empleado(FEM o MAS)");
