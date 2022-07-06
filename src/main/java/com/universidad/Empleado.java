@@ -66,22 +66,31 @@ public class Empleado extends Usuario{
             int id = (int) (Math.random() * 10000);
             System.out.println(id);
             entrada.nextLine();
-<<<<<<< HEAD
-
             //VALIDACION DE PARAMETRO NOMBRE
             System.out.println("Nombre del empleado");
             nombre = entrada.nextLine();
-=======
+
             do {
                 System.out.println("Nombre del empleado");
                 nombre = entrada.nextLine();
             }while(!(nombre.compareTo("^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$")==0));
 
 
->>>>>>> feature/marvin
+
             System.out.println("Apellido del empleado");
-<<<<<<< HEAD
+
             apellido = entrada.nextLine();
+
+            do{//VALIDACION DE PARAMETRO NOMBRE
+                System.out.println("Nombre del empleado");
+                nombre = entrada.nextLine();
+            }while(!(nombre.matches("^([a-z]+[ ]?){1,2}$")));
+
+
+            do {//VALIDACION DE PARAMETRO APELLIDO
+                System.out.println("Apellido del empleado");
+                apellido = entrada.nextLine();
+            }while(!(apellido.matches("^([a-z]+[ ]?){1,2}$")));
 
             do {//VALIDACION DE PARAMETRO SEXO
                 System.out.println("Ingresar sexo del empleado(FEM o MAS)");
@@ -90,12 +99,11 @@ public class Empleado extends Usuario{
             }while (!((sexo.compareTo("FEM")==0)||(sexo.compareTo("MAS")==0)));
 
             System.out.println("Fecha de nacimiento");
-=======
-            String apellido = entrada.nextLine();
+            apellido = entrada.nextLine();
             System.out.println("Ingresar sexo del empleado(FEM o MAS)");
-            String sexo = entrada.nextLine();
+            sexo = entrada.nextLine();
             System.out.println("Fecha de nacimiento(dd-mm-aaaa)");
->>>>>>> main
+
             String fechaNacimiento = entrada.nextLine();
             System.out.println("Status del empleado");
             String status = entrada.nextLine();
