@@ -27,7 +27,8 @@ public abstract class Usuario {
     @Setter @Getter
     protected String statusUsuario;
 
-
+    public Usuario() {
+    }
     public Usuario(int idUsuario, String nombre, String apellido, String sexo, String fechaNacimiento,
                    String statusUsuario) {
         this.idUsuario = idUsuario;
@@ -36,10 +37,6 @@ public abstract class Usuario {
         this.sexo = sexo;
         this.fechaNacimiento = fechaNacimiento;
         this.statusUsuario = statusUsuario;
-    }
-
-    public Usuario() {
-
     }
 
     public String registrarUsuario() {
