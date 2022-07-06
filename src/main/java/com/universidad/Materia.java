@@ -8,33 +8,31 @@ import com.itextpdf.layout.element.Table;
 import lombok.Getter;
 import lombok.Setter;
 import java.io.FileNotFoundException;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Materia {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0495e32de063f6b42e511ad2cb0714c70b875ea1
     @Setter
     @Getter
     private String idMateria;
-
     @Setter
     @Getter
     private String nombreMateria;
-
     @Setter
     @Getter
     private String horario;
-
     @Setter
     @Getter
     private String fechaInicio;
-
     @Setter
     @Getter
     private String fechaFin;
-
-
     public Materia(String idMateria, String nombreMateria, String horario, String fechaInicio, String fechaFin) {
         this.idMateria = idMateria;
         this.nombreMateria = nombreMateria;
@@ -46,7 +44,6 @@ public class Materia {
     public Materia() {
 
     }
-
      public void mostrarmaterias(){
         for (int i=0; i < BdMaterias.listarMaterias().size(); i++ ){
             System.out.println("Indice: "+  (i) +  " Codigo: " + BdMaterias.listarMaterias().get(i).getIdMateria() + " " + "Materia: " + BdMaterias.listarMaterias().get(i).getNombreMateria());      }
@@ -63,8 +60,12 @@ public class Materia {
                 '}';
     }
 
+    String dest;
+    int nmateria;
+    Scanner entrada = new Scanner(System.in);
     public  void mostrarInfo() throws FileNotFoundException {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
        Scanner entrada = new Scanner(System.in);
@@ -73,99 +74,116 @@ public class Materia {
         Scanner entrada = new Scanner(System.in);
 >>>>>>> main
         System.out.println(" ");
+=======
+        String respuesta ="";
+        System.out.println("Escriba la ruta de la carpeta donde quiere guardar el archivo:");
+        String ruta = entrada.nextLine();
+        System.out.println("Escriba el nombre del pdf");
+        String filename = entrada.nextLine();
+        dest = ruta+ File.separator + filename + ".pdf";
+
+        File f = new File(dest);
+        boolean exist = f.exists();
+
+        if(exist == true) {
+            System.out.println("Un archivo con este nombre ya existe ¿Quieres sobrescribir el archivo? si/no");
+              respuesta = entrada.nextLine();
+            if (respuesta.equals("si")) {
+
+                creacionpdf();
+            }
+            else {
+                mostrarInfo();
+        }
+    }
+        else {
+            creacionpdf();
+        }
+    }
+        public void creacionpdf() throws FileNotFoundException {
+
+>>>>>>> 0495e32de063f6b42e511ad2cb0714c70b875ea1
         System.out.println("Escriba el indice de la materia:");
+        nmateria = entrada.nextInt();
 
-         int nmateria = entrada.nextInt();
+        Maestro maestro = new Maestro();
+            //Crear pdf PdfWriter
+            PdfWriter writer = new PdfWriter(dest);
 
+            //Crear PdfDocument
+            PdfDocument pdfDoc = new PdfDocument(writer);
 
-        //Crear pdf PdfWriter
-        String dest = "C:/Pruebas/prueba.pdf";
-        PdfWriter writer = new PdfWriter(dest);
+            //Crear documento
+            Document documento = new Document(pdfDoc);
 
-        //Crear PdfDocument
-        PdfDocument pdfDoc = new PdfDocument(writer);
+            //creando tabla
+            float[] pointColumnWidth = {150F, 150F};
+            Table tabla = new Table(pointColumnWidth);
 
-        //Crear documento
-        Document documento = new Document(pdfDoc);
+            //Agregando datos a la tabla
+            //primera fila
+            Cell cell1 = new Cell();
+            cell1.add("ID de la materia");
+            tabla.addCell(cell1);
 
-        //creando tabla
-        float [] pointColumnWidth = {150F, 150F};
-        Table tabla = new Table(pointColumnWidth);
+            Cell cell2 = new Cell();
+            cell2.add(BdMaterias.listarMaterias().get(nmateria).idMateria);
+            tabla.addCell(cell2);
 
+            //segunda fila
+            Cell cell3 = new Cell();
+            cell3.add("Materia");
+            tabla.addCell(cell3);
 
-           //Agregando datos a la tabla
-           //primera fila
-           Cell cell1 = new Cell();
-           cell1.add("ID de la materia");
-           tabla.addCell(cell1);
+            Cell cell4 = new Cell();
+            cell4.add(BdMaterias.listarMaterias().get(nmateria).nombreMateria);
+            tabla.addCell(cell4);
 
-           Cell cell2 = new Cell();
-           cell2.add(BdMaterias.listarMaterias().get(nmateria).idMateria);
-           tabla.addCell(cell2);
+            //tercera fila
+            Cell cell5 = new Cell();
+            cell5.add("Maestro");
+            tabla.addCell(cell5);
 
+            Cell cell6 = new Cell();
+            cell6.add(maestro.asignarmateriaimpartida().get(nmateria));
+            tabla.addCell(cell6);
 
-           //segunda fila
-           Cell cell3 = new Cell();
-           cell3.add("Materia");
-           tabla.addCell(cell3);
+            //cuarta fila
+            Cell cell7 = new Cell();
+            cell7.add("Horario");
+            tabla.addCell(cell7);
 
-           Cell cell4 = new Cell();
-           cell4.add(BdMaterias.listarMaterias().get(nmateria).nombreMateria);
-           tabla.addCell(cell4);
+            Cell cell8 = new Cell();
+            cell8.add(BdMaterias.listarMaterias().get(nmateria).horario);
+            tabla.addCell(cell8);
 
-           //tercera fila
-           Cell cell5 = new Cell();
-           cell5.add("Maestro");
-           tabla.addCell(cell5);
+            //quinta fila
+            Cell cell9 = new Cell();
+            cell9.add("Fecha de inicio");
+            tabla.addCell(cell9);
 
-           Cell cell6 = new Cell();
-           cell6.add(maestro.asignarmateriaimpartida().get(nmateria));
-           tabla.addCell(cell6);
+            Cell cell10 = new Cell();
+            cell10.add(BdMaterias.listarMaterias().get(nmateria).fechaInicio);
+            tabla.addCell(cell10);
 
-           //cuarta fila
-           Cell cell7 = new Cell();
-           cell7.add("Horario");
-           tabla.addCell(cell7);
+            //sexta fila
+            Cell cell11 = new Cell();
+            cell11.add("Fecha de finalizacion");
+            tabla.addCell(cell11);
 
-           Cell cell8 = new Cell();
-           cell8.add(BdMaterias.listarMaterias().get(nmateria).horario);
-           tabla.addCell(cell8);
+            Cell cell12 = new Cell();
+            cell12.add(BdMaterias.listarMaterias().get(nmateria).fechaFin);
+            tabla.addCell(cell12);
 
-           //quinta fila
-           Cell cell9 = new Cell();
-           cell9.add("Fecha de inicio");
-           tabla.addCell(cell9);
+            documento.add(tabla);
 
-           Cell cell10 = new Cell();
-           cell10.add(BdMaterias.listarMaterias().get(nmateria).fechaInicio);
-           tabla.addCell(cell10);
+            documento.close();
 
-           //sexta fila
-           Cell cell11 = new Cell();
-           cell11.add("Fecha de finalizacion");
-           tabla.addCell(cell11);
-
-           Cell cell12 = new Cell();
-           cell12.add(BdMaterias.listarMaterias().get(nmateria).fechaFin);
-           tabla.addCell(cell12);
-
-           documento.add(tabla);
-
-           documento.close();
-
-
-
-           System.out.println("Documento PDF creado");
-
-
+            System.out.println("Documento PDF creado");
+        }
     }
 
 
 
 
 
-
-
-
-
-}
