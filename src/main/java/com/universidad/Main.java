@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
         boolean salir = false;
@@ -16,18 +15,22 @@ public class Main {
 
         Empleado empleado1 = new Empleado();
         Estudiante estudiante1 = new Estudiante();
+<<<<<<< HEAD
         Materia materia1 = new Materia();
+=======
+        PagoCuota pago1 = new PagoCuota();
+>>>>>>> main
 
         while(!salir){
 
-                System.out.println("*****************************************");
-                System.out.println("Seleccione una de las siguientes opciones");
-                System.out.println("1. Registrar/Listar/Eliminar Empleado");
-                System.out.println("2. Registrar/Listar/Eliminar Estudiante");
-                System.out.println("3. Listar Maestros");
-                System.out.println("4. Registrar notas de alumnos");
-                System.out.println("5. Listar alumnos por materia y notas");
-                System.out.println("6. Salir");
+            System.out.println("*****************************************");
+            System.out.println("Seleccione una de las siguientes opciones");
+            System.out.println("1. Registrar/Listar/Eliminar Empleado");
+            System.out.println("2. Registrar/Listar/Eliminar Estudiante");
+            System.out.println("3. Listar Maestros");
+            System.out.println("4. Registrar notas de alumnos");
+            System.out.println("5. Listar alumnos por materia y notas");
+            System.out.println("6. Salir");
             try{
                 opcion1 = Integer.parseInt(entrada.next());
                 if (opcion1<1 || opcion1>6){
@@ -58,11 +61,13 @@ public class Main {
                         System.out.println("1. Registrar Estudiante");
                         System.out.println("2. Listar Estudiante");
                         System.out.println("3. Eliminar Estudiante");
+                        System.out.println("4. Procesar Pago de Cuota");
                         opcion3 = entrada.nextInt();
                         switch (opcion3){
                             case 1:
                                 System.out.println("1. Registrando Estudiante");
                                 estudiante1.registrarUsuario();
+
                                 break;
                             case 2:
                                 System.out.println("2. Listando Estudiante");
@@ -75,16 +80,25 @@ public class Main {
                                 System.out.println("3. Eliminando Estudiante");
                                 estudiante1.eliminarUsuario();
                                 break;
+                            case 4:
+                                System.out.println("4. Pago de Estudiante");
+                                pago1.gestionarPagos();
+                                break;
                         }
                         break;
                     case 3:
                         System.out.println("Listar Maestros");
                         Maestro maestro = new Maestro();
+<<<<<<< HEAD
                         maestro.identificarmaestros();
                         materia1.mostrarInfo();
+=======
+                        maestro.identificarMaestros();
+
+>>>>>>> main
                         boolean check = empleado1.getEmpleadosList().isEmpty();
                         if(check == false){
-                            for(int j = 0; j<empleado1.getEmpleadosList().size(); j++){
+                            for(int j = 0; j < empleado1.getEmpleadosList().size(); j++){
                                 if (empleado1.getEmpleadosList().get(j).rol.equals("MAESTRO")){
                                     System.out.println(empleado1.getEmpleadosList().get(j));
                                 }
@@ -109,10 +123,14 @@ public class Main {
             }catch (InputMismatchException e){
                 System.out.println("Debe ingresar un numero");
                 entrada.next();
+<<<<<<< HEAD
               } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
+=======
+>>>>>>> main
             }
         }
         }
+    }
     }
 

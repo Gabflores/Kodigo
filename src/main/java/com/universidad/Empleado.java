@@ -6,17 +6,13 @@ import lombok.Setter;
 import java.util.*;
 
 public class Empleado extends Usuario{
-    @Setter
-    @Getter
+    @Setter @Getter
     double salario;
-    @Setter
-    @Getter
+    @Setter @Getter
     String rol;
-    @Setter
-    @Getter
+    @Setter @Getter
     String cuentaBancaria;
-    @Setter
-    @Getter
+    @Setter @Getter
     String profesion;
 
     public Empleado(int idUsuario, String nombre, String apellido, String sexo, String fechaNacimiento,
@@ -27,14 +23,12 @@ public class Empleado extends Usuario{
         this.cuentaBancaria = cuentaBancaria;
         this.profesion = profesion;
     }
+    public Empleado() {
+    }
 
     public Empleado(List<Empleado> empleadosList) {
         this.empleadosList = empleadosList;
     }
-
-    public Empleado() {
-    }
-
     @Override
     public String toString() {
         return "Empleado{" + '\n' +
@@ -79,6 +73,7 @@ public class Empleado extends Usuario{
 
 
             System.out.println("Apellido del empleado");
+<<<<<<< HEAD
             apellido = entrada.nextLine();
 
             do {//VALIDACION DE PARAMETRO SEXO
@@ -88,6 +83,12 @@ public class Empleado extends Usuario{
             }while (!((sexo.compareTo("FEM")==0)||(sexo.compareTo("MAS")==0)));
 
             System.out.println("Fecha de nacimiento");
+=======
+            String apellido = entrada.nextLine();
+            System.out.println("Ingresar sexo del empleado(FEM o MAS)");
+            String sexo = entrada.nextLine();
+            System.out.println("Fecha de nacimiento(dd-mm-aaaa)");
+>>>>>>> main
             String fechaNacimiento = entrada.nextLine();
             System.out.println("Status del empleado");
             String status = entrada.nextLine();
@@ -138,4 +139,5 @@ public class Empleado extends Usuario{
         }
 
     }
+
 }
