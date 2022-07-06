@@ -66,10 +66,19 @@ public class Empleado extends Usuario{
             int id = (int) (Math.random() * 10000);
             System.out.println(id);
             entrada.nextLine();
+<<<<<<< HEAD
 
             //VALIDACION DE PARAMETRO NOMBRE
             System.out.println("Nombre del empleado");
             nombre = entrada.nextLine();
+=======
+            do {
+                System.out.println("Nombre del empleado");
+                nombre = entrada.nextLine();
+            }while(!(nombre.compareTo("^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$")==0));
+
+
+>>>>>>> feature/marvin
             System.out.println("Apellido del empleado");
 <<<<<<< HEAD
             apellido = entrada.nextLine();
