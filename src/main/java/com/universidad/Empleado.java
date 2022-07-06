@@ -72,6 +72,8 @@ public class Empleado extends Usuario{
             int id = (int) (Math.random() * 10000);
             System.out.println(id);
             entrada.nextLine();
+
+            //VALIDACION DE PARAMETRO NOMBRE
             System.out.println("Nombre del empleado");
             nombre = entrada.nextLine();
             System.out.println("Apellido del empleado");
