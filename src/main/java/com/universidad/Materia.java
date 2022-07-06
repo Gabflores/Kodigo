@@ -14,7 +14,6 @@ import java.util.Scanner;
 
 public class Materia {
 
-
     @Setter
     @Getter
     private String idMateria;
@@ -66,9 +65,13 @@ public class Materia {
 
     public  void mostrarInfo() throws FileNotFoundException {
 
+<<<<<<< HEAD
 
        Scanner entrada = new Scanner(System.in);
        Maestro maestro = new Maestro();
+=======
+        Scanner entrada = new Scanner(System.in);
+>>>>>>> main
         System.out.println(" ");
         System.out.println("Escriba el indice de la materia:");
 
