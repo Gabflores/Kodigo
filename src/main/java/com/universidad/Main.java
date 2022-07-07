@@ -15,6 +15,7 @@ public class Main {
         Empleado empleado1 = new Empleado();
         Estudiante estudiante1 = new Estudiante();
         Materia materia1 = new Materia();
+        Notas notas1 = new Notas();
         PagoCuota pago1 = new PagoCuota();
 
         while(!salir){
@@ -25,8 +26,9 @@ public class Main {
             System.out.println("2. Registrar/Listar/Eliminar/Pagar Estudiante");
             System.out.println("3. Listar Maestros");
             System.out.println("4. Generar reporte por materia");
-            //System.out.println("5. Listar alumnos por materia y notas");
-            System.out.println("6. Salir");
+            System.out.println("5. Registrar notas de alumnos");
+            System.out.println("6. Listar alumnos por materia y notas");
+            System.out.println("7. Salir");
             try{
                 opcion1 = Integer.parseInt(entrada.next());
                 if (opcion1<1 || opcion1>6){
@@ -101,11 +103,15 @@ public class Main {
                         System.out.println("Generar reporte");
                         materia1.mostrarInfo();
                         break;
-                    //case 5:
-                      //  System.out.println("Listar alumnos por materia y notas");
-                        //Implementar metodo
-                        //break;
+                    case 5:
+                        System.out.println("Registrar notas de alumnos");
+                        notas1.RegistrarAlumnosNM();
+                        break;
                     case 6:
+                        System.out.println("Listar alumnos por materia y notas");
+                        notas1.ListarAlumnosNM();
+                        break;
+                    case 7:
                         System.out.println("Saliendo del sistema");
                         salir = true;
                         break;
