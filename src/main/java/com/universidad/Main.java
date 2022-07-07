@@ -17,6 +17,7 @@ public class Main {
         Empleado empleado1 = new Empleado();
         Estudiante estudiante1 = new Estudiante();
         Materia materia1 = new Materia();
+        Notas notas1 = new Notas();
 
         while(!salir){
 
@@ -30,10 +31,10 @@ public class Main {
                 System.out.println("6. Salir");
             try{
                 opcion1 = Integer.parseInt(entrada.next());
-                if (opcion1<1 || opcion1>6){
+                if (opcion1 < 1 || opcion1 > 6){
                     System.out.println("Opcion invalida");
                 }
-                switch (opcion1){
+                switch(opcion1){
                     case 1:
                         System.out.println("1. Registrar Empleado");
                         System.out.println("2. Listar Empleado");
@@ -59,7 +60,7 @@ public class Main {
                         System.out.println("2. Listar Estudiante");
                         System.out.println("3. Eliminar Estudiante");
                         opcion3 = entrada.nextInt();
-                        switch (opcion3){
+                        switch(opcion3){
                             case 1:
                                 System.out.println("1. Registrando Estudiante");
                                 estudiante1.registrarUsuario();
@@ -93,11 +94,11 @@ public class Main {
                         break;
                     case 4:
                         System.out.println("Registrar notas de alumnos");
-                        //Implementar metodo
+                        notas1.RegistrarAlumnosNM();
                         break;
                     case 5:
                         System.out.println("Listar alumnos por materia y notas");
-                        //Implementar metodo
+                        notas1.ListarAlumnosNM();
                         break;
                     case 6:
                         System.out.println("Saliendo del sistema");
