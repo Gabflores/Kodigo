@@ -1,5 +1,5 @@
 package com.universidad;
-
+//registrar y eliminar no sirven
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,19 +9,26 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Estudiante extends Usuario{
-    @Setter
+
     @Getter
     private double promedio;
     @Setter
     @Getter
     private String idCarrera;
 
+    @Getter
+    @Setter
+    private String idMateria;
+
+    @Getter
+    @Setter
     private ArrayList<Materia> materiasList;
 
-    public Estudiante(int idUsuario, String nombre, String apellido, String sexo, String fechaNacimiento, String statusUsuario, double promedio, String idCarrera, ArrayList<Materia> materiasList) {
+    public Estudiante(int idUsuario, String nombre, String apellido, String sexo, String fechaNacimiento, String statusUsuario, double promedio, String idCarrera, String idMateria ,ArrayList<Materia> materiasList) {
         super(idUsuario, nombre, apellido, sexo, fechaNacimiento, statusUsuario);
         this.promedio = promedio;
         this.idCarrera = idCarrera;
+        this.idMateria = idMateria;
         this.materiasList = materiasList;
     }
 
@@ -31,6 +38,8 @@ public class Estudiante extends Usuario{
     public Estudiante() {
         super();
     }
+
+
 
     @Override
     public String registrarUsuario() {
@@ -56,13 +65,11 @@ public class Estudiante extends Usuario{
             String carrera = entrada.nextLine();
             entrada.nextLine();
 
-            Estudiante estudianteNuevo = new Estudiante(id,nombre,apellido,sexo,fechaNacimiento,status,0.0,carrera,new ArrayList<>());
+            Estudiante estudianteNuevo = new Estudiante(id,nombre,apellido,sexo,fechaNacimiento,status,0.0,carrera,idMateria,new ArrayList<>());
             estudiantesList.add(estudianteNuevo);
         }
         return "registro exitoso";
     }
-
-
 
     public ArrayList listarUsuario(){
         if (estudiantesList.size() == 0) {
@@ -107,4 +114,5 @@ public class Estudiante extends Usuario{
                 '}';
     }
 }
+
 
