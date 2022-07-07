@@ -61,13 +61,10 @@ public class Materia {
     int nmateria;
     Scanner entrada = new Scanner(System.in);
     public  void mostrarInfo() throws FileNotFoundException {
-
-       Scanner entrada = new Scanner(System.in);
-       Maestro maestro = new Maestro();
-
+        Scanner entrada = new Scanner(System.in);
+        Maestro maestro = new Maestro();
 
         System.out.println(" ");
-
         String respuesta ="";
         System.out.println("Escriba la ruta de la carpeta donde quiere guardar el archivo:");
         String ruta = entrada.nextLine();
@@ -82,7 +79,6 @@ public class Materia {
             System.out.println("Un archivo con este nombre ya existe ¿Quieres sobrescribir el archivo? si/no");
               respuesta = entrada.nextLine();
             if (respuesta.equals("si")) {
-
                 creacionpdf();
             }
             else {

@@ -8,14 +8,14 @@ public class Maestro {
     List<String> maestromateria = new ArrayList<>();
 
     public void identificarmaestros() {
-        List<Empleado> Maestros = new ArrayList<>();
         for (int i = 0; i < BdEmpleados.listarEmpleados().size(); i++ ){
             if (BdEmpleados.listarEmpleados().get(i).rol .equals("MAESTRO")){
-
                 Maestros.add(BdEmpleados.listarEmpleados().get(i));
             }
         }
-        System.out.println(Maestros);
+        for(Empleado maestro : Maestros){
+            System.out.println(maestro);
+        }
     }
 
     public ArrayList<String> asignarmateriaimpartida() {
@@ -28,10 +28,6 @@ public class Maestro {
         maestromateria.add("Dimitri Mendez");
         maestromateria.add("Israel Mendez");
         maestromateria.add("Israel Mendez");
-
-
         return (ArrayList<String>) maestromateria;
-
-
     }
 }

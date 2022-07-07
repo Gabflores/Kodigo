@@ -41,6 +41,11 @@ public class Estudiante extends Usuario{
 
     @Override
     public String registrarUsuario() {
+            String nombre;
+            String apellido;
+            String sexo;
+
+
         int listSize = estudiantesList.size();
         System.out.println("Cantidad de estudiantes a inscribir");
             listSize = entrada.nextInt();
@@ -50,14 +55,28 @@ public class Estudiante extends Usuario{
             int id = (int) (Math.random() * 1000);
             System.out.println(id);
             entrada.nextLine();
-            System.out.println("Nombre del estudiante");
-            String nombre = entrada.nextLine();
-            System.out.println("Apellido del estudiante");
-            String apellido = entrada.nextLine();
-            System.out.println("Ingresar sexo del alumno(FEM o MAS)");
-            String sexo = entrada.nextLine();
-            System.out.println("Fecha de nacimiento");
-            String fechaNacimiento = entrada.nextLine();
+
+            do{//VALIDACION DE PARAMETRO NOMBRE
+                System.out.println("Nombre del estudiante");
+                nombre = entrada.nextLine();
+            }while(!(nombre.matches("^([a-zA-Z_]+[ ]?){1,2}$")));
+
+            do {//VALIDACION DE PARAMETRO APELLIDO
+                System.out.println("Apellido del estudiante");
+                apellido = entrada.nextLine();
+            }while(!(apellido.matches("^([a-zA-Z_]+[ ]?){1,2}$")));
+
+            do {//VALIDACION DE PARAMETRO SEXO
+                System.out.println("Ingresar sexo del alumno(FEM o MAS)");
+                sexo = entrada.nextLine();
+                System.out.println(sexo);
+            }while (!((sexo.compareTo("FEM")==0)||(sexo.compareTo("MAS")==0)));
+
+            do {//VALIDACION PARAMETRO FECHA
+                System.out.println("Fecha de nacimiento (DD-MM-YYY)");
+                fechaNacimiento = entrada.nextLine();
+            }while(!(fechaNacimiento.matches("^[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}$")));
+
             System.out.println("Status del Alumno");
             String status = entrada.nextLine();
             System.out.println("Id Carrera");
@@ -72,7 +91,7 @@ public class Estudiante extends Usuario{
     }
     public ArrayList listarUsuario(){
         if (estudiantesList.size() == 0) {
-            System.out.println("Lista de empleados vacia");
+            System.out.println("Lista de estudiantes vacia");
         } else {
             for (int i = 0; i < estudiantesList.size(); i++) {
                 System.out.println(i + 1);
@@ -85,9 +104,9 @@ public class Estudiante extends Usuario{
     @Override
     public void eliminarUsuario() {
         if (estudiantesList.size() == 0) {
-            System.out.println("Lista vacia, imposible eliminar empleado");
+            System.out.println("Lista vacia, imposible eliminar estudiante");
         } else {
-            System.out.println("Indique el indice del empleado a eliminar");
+            System.out.println("Indique el indice del estudiante a eliminar");
             int indice = entrada.nextInt();
             estudiantesList.remove(indice - 1);
             Iterator iterador = estudiantesList.iterator();

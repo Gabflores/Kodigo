@@ -2,7 +2,6 @@ package com.universidad;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-//import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -25,8 +24,8 @@ public class Main {
             System.out.println("1. Registrar/Listar/Eliminar Empleado");
             System.out.println("2. Registrar/Listar/Eliminar/Pagar Estudiante");
             System.out.println("3. Listar Maestros");
-            System.out.println("4. Registrar notas de alumnos");
-            System.out.println("5. Listar alumnos por materia y notas");
+            System.out.println("4. Generar reporte por materia");
+            //System.out.println("5. Listar alumnos por materia y notas");
             System.out.println("6. Salir");
             try{
                 opcion1 = Integer.parseInt(entrada.next());
@@ -84,11 +83,10 @@ public class Main {
                         }
                         break;
                     case 3:
-                        System.out.println("Listar Maestros");
+                        System.out.println("Lista de Maestros");
                         Maestro maestro = new Maestro();
                         maestro.identificarmaestros();
-                        materia1.mostrarInfo();
-                      //  maestro.identificarMaestros();
+
 
                         boolean check = empleado1.getEmpleadosList().isEmpty();
                         if(check == false){
@@ -100,13 +98,13 @@ public class Main {
                         }
                         break;
                     case 4:
-                        System.out.println("Registrar notas de alumnos");
-                        //Implementar metodo
+                        System.out.println("Generar reporte");
+                        materia1.mostrarInfo();
                         break;
-                    case 5:
-                        System.out.println("Listar alumnos por materia y notas");
+                    //case 5:
+                      //  System.out.println("Listar alumnos por materia y notas");
                         //Implementar metodo
-                        break;
+                        //break;
                     case 6:
                         System.out.println("Saliendo del sistema");
                         salir = true;
