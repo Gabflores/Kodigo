@@ -6,17 +6,13 @@ import lombok.Setter;
 import java.util.*;
 
 public class Empleado extends Usuario{
-    @Setter
-    @Getter
+    @Setter @Getter
     double salario;
-    @Setter
-    @Getter
+    @Setter @Getter
     String rol;
-    @Setter
-    @Getter
+    @Setter @Getter
     String cuentaBancaria;
-    @Setter
-    @Getter
+    @Setter @Getter
     String profesion;
 
     public Empleado(int idUsuario, String nombre, String apellido, String sexo, String fechaNacimiento,
@@ -27,14 +23,12 @@ public class Empleado extends Usuario{
         this.cuentaBancaria = cuentaBancaria;
         this.profesion = profesion;
     }
+    public Empleado() {
+    }
 
     public Empleado(List<Empleado> empleadosList) {
         this.empleadosList = empleadosList;
     }
-
-    public Empleado() {
-    }
-
     @Override
     public String toString() {
         return "Empleado{" + '\n' +
@@ -62,6 +56,7 @@ public class Empleado extends Usuario{
         String nombre;
         String apellido;
         String sexo;
+        String fechaNacimiento;
 
         int listSize = empleadosList.size();
         System.out.println("Cantidad de empleados a registrar");
@@ -72,14 +67,16 @@ public class Empleado extends Usuario{
             int id = (int) (Math.random() * 10000);
             System.out.println(id);
             entrada.nextLine();
-            do {
+
+            do{//VALIDACION DE PARAMETRO NOMBRE
                 System.out.println("Nombre del empleado");
                 nombre = entrada.nextLine();
-            }while(!(nombre.compareTo("^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$")==0));
+            }while(!(nombre.matches("^([a-zA-Z_]+[ ]?){1,2}$")));
 
-
-            System.out.println("Apellido del empleado");
-            apellido = entrada.nextLine();
+            do {//VALIDACION DE PARAMETRO APELLIDO
+                System.out.println("Apellido del empleado");
+                apellido = entrada.nextLine();
+            }while(!(apellido.matches("^([a-zA-Z_]+[ ]?){1,2}$")));
 
             do {//VALIDACION DE PARAMETRO SEXO
                 System.out.println("Ingresar sexo del empleado(FEM o MAS)");
@@ -87,8 +84,11 @@ public class Empleado extends Usuario{
                 System.out.println(sexo);
             }while (!((sexo.compareTo("FEM")==0)||(sexo.compareTo("MAS")==0)));
 
-            System.out.println("Fecha de nacimiento");
-            String fechaNacimiento = entrada.nextLine();
+            do {//VALIDACION PARAMETRO FECHA
+                System.out.println("Fecha de nacimiento (DD-MM-YYY)");
+                fechaNacimiento = entrada.nextLine();
+            }while(!(fechaNacimiento.matches("^[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}$")));
+
             System.out.println("Status del empleado");
             String status = entrada.nextLine();
             System.out.println("Salario del empleado");
@@ -138,4 +138,5 @@ public class Empleado extends Usuario{
         }
 
     }
+
 }

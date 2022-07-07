@@ -31,10 +31,5 @@ public class BdEmpleados {
         empleadosList.add(empleado10);
 
         return empleadosList;
-
     }
-
-
-
-
 }
