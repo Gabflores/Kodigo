@@ -2,7 +2,7 @@ package com.universidad;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.List;
+//import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -15,18 +15,15 @@ public class Main {
 
         Empleado empleado1 = new Empleado();
         Estudiante estudiante1 = new Estudiante();
-<<<<<<< HEAD
         Materia materia1 = new Materia();
-=======
         PagoCuota pago1 = new PagoCuota();
->>>>>>> main
 
         while(!salir){
 
             System.out.println("*****************************************");
             System.out.println("Seleccione una de las siguientes opciones");
             System.out.println("1. Registrar/Listar/Eliminar Empleado");
-            System.out.println("2. Registrar/Listar/Eliminar Estudiante");
+            System.out.println("2. Registrar/Listar/Eliminar/Pagar Estudiante");
             System.out.println("3. Listar Maestros");
             System.out.println("4. Registrar notas de alumnos");
             System.out.println("5. Listar alumnos por materia y notas");
@@ -89,13 +86,10 @@ public class Main {
                     case 3:
                         System.out.println("Listar Maestros");
                         Maestro maestro = new Maestro();
-<<<<<<< HEAD
                         maestro.identificarmaestros();
                         materia1.mostrarInfo();
-=======
-                        maestro.identificarMaestros();
+                      //  maestro.identificarMaestros();
 
->>>>>>> main
                         boolean check = empleado1.getEmpleadosList().isEmpty();
                         if(check == false){
                             for(int j = 0; j < empleado1.getEmpleadosList().size(); j++){
@@ -123,14 +117,10 @@ public class Main {
             }catch (InputMismatchException e){
                 System.out.println("Debe ingresar un numero");
                 entrada.next();
-<<<<<<< HEAD
               } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
-=======
->>>>>>> main
             }
         }
         }
-    }
     }
 

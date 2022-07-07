@@ -14,10 +14,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Materia {
-<<<<<<< HEAD
 
-=======
->>>>>>> 0495e32de063f6b42e511ad2cb0714c70b875ea1
     @Setter
     @Getter
     private String idMateria;
@@ -65,16 +62,12 @@ public class Materia {
     Scanner entrada = new Scanner(System.in);
     public  void mostrarInfo() throws FileNotFoundException {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
        Scanner entrada = new Scanner(System.in);
        Maestro maestro = new Maestro();
-=======
-        Scanner entrada = new Scanner(System.in);
->>>>>>> main
+
+
         System.out.println(" ");
-=======
+
         String respuesta ="";
         System.out.println("Escriba la ruta de la carpeta donde quiere guardar el archivo:");
         String ruta = entrada.nextLine();
@@ -102,7 +95,6 @@ public class Materia {
     }
         public void creacionpdf() throws FileNotFoundException {
 
->>>>>>> 0495e32de063f6b42e511ad2cb0714c70b875ea1
         System.out.println("Escriba el indice de la materia:");
         nmateria = entrada.nextInt();
 

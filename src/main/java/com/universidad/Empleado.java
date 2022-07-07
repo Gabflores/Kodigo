@@ -67,9 +67,6 @@ public class Empleado extends Usuario{
             int id = (int) (Math.random() * 10000);
             System.out.println(id);
             entrada.nextLine();
-            //VALIDACION DE PARAMETRO NOMBRE
-            System.out.println("Nombre del empleado");
-            nombre = entrada.nextLine();
 
             do{//VALIDACION DE PARAMETRO NOMBRE
                 System.out.println("Nombre del empleado");
@@ -82,19 +79,7 @@ public class Empleado extends Usuario{
                 apellido = entrada.nextLine();
             }while(!(apellido.matches("^([a-zA-Z_]+[ ]?){1,2}$")));
 
-            do {
-                System.out.println("Nombre del empleado");
-                nombre = entrada.nextLine();
-            }while(!(nombre.compareTo("^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$")==0));
 
-            System.out.println("Apellido del empleado");
-
-            apellido = entrada.nextLine();
-            do{//VALIDACION DE PARAMETRO NOMBRE
-                System.out.println("Nombre del empleado");
-                nombre = entrada.nextLine();
-            }while(!(nombre.matches("^([a-z]+[ ]?){1,2}$")));
-            
             do {//VALIDACION DE PARAMETRO APELLIDO
                 System.out.println("Apellido del empleado");
                 apellido = entrada.nextLine();
@@ -106,16 +91,11 @@ public class Empleado extends Usuario{
                 System.out.println(sexo);
             }while (!((sexo.compareTo("FEM")==0)||(sexo.compareTo("MAS")==0)));
 
-            System.out.println("Fecha de nacimiento");
-            apellido = entrada.nextLine();
-            System.out.println("Ingresar sexo del empleado(FEM o MAS)");
-            sexo = entrada.nextLine();
             do {//VALIDACION PARAMETRO FECHA
                 System.out.println("Fecha de nacimiento (DD-MM-YYY)");
-                String fechaNacimiento = entrada.nextLine();
+                fechaNacimiento = entrada.nextLine();
             }while(!(fechaNacimiento.matches("^[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}$")));
-            
->>>>>>> 0495e32de063f6b42e511ad2cb0714c70b875ea1
+
             System.out.println("Status del empleado");
             String status = entrada.nextLine();
             System.out.println("Salario del empleado");

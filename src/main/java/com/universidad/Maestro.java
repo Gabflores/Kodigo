@@ -7,18 +7,11 @@ public class Maestro {
     List<Empleado> Maestros = new ArrayList<>();
     List<String> maestromateria = new ArrayList<>();
 
-
-<<<<<<< HEAD
     public void identificarmaestros() {
-
-        for (int i = 0; i < BdEmpleados.listarEmpleados().size(); i++) {
-            if (BdEmpleados.listarEmpleados().get(i).rol.equals("MAESTRO")) {
-=======
-    public void identificarMaestros() {
         List<Empleado> Maestros = new ArrayList<>();
         for (int i = 0; i < BdEmpleados.listarEmpleados().size(); i++ ){
             if (BdEmpleados.listarEmpleados().get(i).rol .equals("MAESTRO")){
->>>>>>> main
+
                 Maestros.add(BdEmpleados.listarEmpleados().get(i));
             }
         }
