@@ -14,6 +14,10 @@ public class Estudiante extends Usuario{
     private double promedio;
     @Setter @Getter
     private String idCarrera;
+
+
+    @Setter @Getter
+    private String idMateria;
     private ArrayList<Materia> materiasList;
 
     @Setter @Getter
@@ -27,10 +31,11 @@ public class Estudiante extends Usuario{
         this.entrada = entrada;
     }
 
-    public Estudiante(int idUsuario, String nombre, String apellido, String sexo, String fechaNacimiento, String statusUsuario, double promedio, String idCarrera, ArrayList<Materia> materiasList, int pagosProcesados) {
+    public Estudiante(int idUsuario, String nombre, String apellido, String sexo, String fechaNacimiento, String statusUsuario, double promedio, String idCarrera, String idMateria, ArrayList<Materia> materiasList, int pagosProcesados) {
         super(idUsuario, nombre, apellido, sexo, fechaNacimiento, statusUsuario);
         this.promedio = promedio;
         this.idCarrera = idCarrera;
+        this.idMateria = idMateria;
         this.materiasList = materiasList;
         this.pagosProcesados = pagosProcesados;
 
@@ -84,7 +89,7 @@ public class Estudiante extends Usuario{
             System.out.println("Cuotas pagadas");
             int numeroCuotas = entrada.nextInt();
             entrada.nextLine();
-            Estudiante estudianteNuevo = new Estudiante(id,nombre,apellido,sexo,fechaNacimiento,status,0.0,carrera,new ArrayList<>(),6);
+            Estudiante estudianteNuevo = new Estudiante(id,nombre,apellido,sexo,fechaNacimiento,status,0.0,carrera,idMateria,new ArrayList<>(),6);
             estudiantesList.add(estudianteNuevo);
         }
         return "registro exitoso";
