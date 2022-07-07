@@ -1,5 +1,5 @@
 package com.universidad;
-//registrar y eliminar no sirven
+
 import lombok.Getter;
 import lombok.Setter;
 
