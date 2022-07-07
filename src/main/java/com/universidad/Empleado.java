@@ -86,17 +86,6 @@ public class Empleado extends Usuario{
                 apellido = entrada.nextLine();
             }while(!(apellido.matches("^([a-zA-Z_]+[ ]?){1,2}$")));
 
-
-            do {
-                System.out.println("Nombre del empleado");
-                nombre = entrada.nextLine();
-            }while(!(nombre.compareTo("^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$")==0));
-
-
-            System.out.println("Apellido del empleado");
-            apellido = entrada.nextLine();
-
-
             do {//VALIDACION DE PARAMETRO SEXO
                 System.out.println("Ingresar sexo del empleado(FEM o MAS)");
                 sexo = entrada.nextLine();
